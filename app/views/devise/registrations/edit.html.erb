@@ -1,0 +1,29 @@
+<% unless devise_error_messages!.empty? %>
+  <div class="alert alert-error">
+    <%= devise_error_messages! %>
+  </div>
+<% end %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-signin' }) do |f| %>
+	<h2 class="form-signin-heading">Ваш профайл</h2>
+
+  <div><%= f.label :email %>
+  <%= f.email_field :email, autofocus: true %></div>
+
+  <div><%= f.label :name, "Ім'я" %>
+  <%= f.text_field :name %></div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div><%= f.label :password, "Новий пароль" %> <i>(залишіть пустим, якщо не хочете міняти)</i>
+  <%= f.password_field :password, autocomplete: "off" %></div>
+
+  <div><%= f.label :password_confirmation, "Підтвердження нового паролю" %>
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.label :current_password, "Теперішній пароль" %> <i>(потрібен для підтвердження змін)</i>
+  <%= f.password_field :current_password %></div>
+
+  <%= f.submit "Оновити", class: "btn btn-large" %>
+<% end %>
