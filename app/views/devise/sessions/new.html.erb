@@ -1,0 +1,16 @@
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-signin' }) do |f| %>
+  <h2 class="form-signin-heading">Вхід у Wealthy Lang</h2>
+
+  <%= f.email_field :email, :autofocus => true, :placeholder => "Email", :class => "input-block-level" %>
+
+  <%= f.password_field :password, :placeholder => "Пароль", :class => "input-block-level" %>
+
+  <% if devise_mapping.rememberable? -%>
+    <label class="checkbox"><%= f.check_box :remember_me %> Запам'ятати мене
+    </label>
+  <% end -%>
+
+  <%= f.submit "Увійти", :class => "btn btn-large" %>
+  <!--<p><%#= render "devise/shared/links" %></p>-->
+<% end %>
+
