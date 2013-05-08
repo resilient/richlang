@@ -1,0 +1,57 @@
+<div class="row content">
+
+  <div class="span12">
+
+    <p class="text-right">100 слів</p>
+    <form class="form-search">
+      <input type="text" class="input-xlarge" placeholder="Шукати або додати нове слово">
+      <button type="submit" class="btn">Додати</button>
+    </form>
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th>
+          <input type="checkbox" value="">
+        </th>
+        <th colspan="5">
+          <div class="btn-group control-buttons">
+            <button class="btn">На повторення</button>
+            <button class="btn">Видалити</button>
+          </div>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+
+
+		    <% @words.each do |word| %>
+				  <tr>
+				    <td>
+				      <input type="checkbox" value="">
+				    </td>
+				    <td>
+				      <a href="#"><%= link_to word.word, word %></a>
+				    </td>
+				    <td>
+				      <a href="#"><%= word.translation %></a>
+				    </td>
+				    <td>
+				      <img class="image" src="http://placehold.it/900x600">
+				    </td>
+				    <td> <p class="text-right"><%= link_to 'редагувати', edit_word_path(word) %></p></td>
+				    <td> <p class="text-right"><%= link_to 'видалити', word, confirm: 'Are you sure?', method: :delete %></p></td>
+				  </tr>
+				<% end %>
+
+				<br />
+
+
+      </tbody>
+    </table>
+
+    <%= link_to 'Нове слово', new_word_path %>
+
+  </div>
+
+</div>
