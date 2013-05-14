@@ -1,11 +1,24 @@
+#!/usr/local/bin/ruby
+# coding: utf-8
+
 class WordsController < ApplicationController
 	before_filter :authenticate_user!
+  respond_to :html, :json
 
   def index
-    @words = current_user.words
+    @search_word = params[:search]
+
+    @words = current_user.words.search(@search_word).order("created_at DESC")
+
+    @words_count = @words.size
   end
 
   def show
+    @word = Word.find(params[:id])
+  end
+
+
+  def edit
     @word = Word.find(params[:id])
   end
 
@@ -13,29 +26,21 @@ class WordsController < ApplicationController
     @word = Word.new
   end
 
-  def edit
-    @word = Word.find(params[:id])
-  end
-
   def create
     @word = current_user.words.build(params[:word])
 
     if @word.save
-      redirect_to words_url, notice: 'Word was successfully created.'
+      redirect_to words_url
     else
-      render action: "new"
+      redirect_to words_url, notice: 'Something wrong!'
     end
   end
 
   def update
     @word = Word.find(params[:id])
 
-    if @word.update_attributes(params[:word])
-      redirect_to words_url, notice: 'Word was successfully updated.'
-    else
-      render action: "edit"
-    end
-
+    @word.update_attributes(params[:word])
+    respond_with @word
   end
 
   def destroy
@@ -43,6 +48,5 @@ class WordsController < ApplicationController
     @word.destroy
 
     redirect_to words_url
-
   end
 end

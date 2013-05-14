@@ -1,29 +1,18 @@
-<%= form_for(@word) do |f| %>
-  <% if @word.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@word.errors.count, "error") %> prohibited this word from being saved:</h2>
+<%= form_for(@word, validate: true) do |f| %>
+  <div class="form-body">
+    <%= f.text_field :word, placeholder: "Слово", class: "input-block-level", id: "input_word" %>
+    <a target="_blank" id="lingvo_link" href="http://www.lingvo.ua/uk/Translate/en-uk/">Подивитися переклад слова на сайті Lingvo</a><br/><br/>
 
-      <ul>
-      <% @word.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= f.text_field :translation, placeholder: "Переклад", class: "input-block-level" %><br/><br/>
 
-  <div class="field">
-    <%= f.label :word %><br />
-    <%= f.text_field :word %>
+    Асоціативна картинка:
+    <%= f.file_field :image %><br/><br/>
+
+    <%= f.text_area :example, placeholder: "Приклад", class: "input-block-level", rows: 5 %>
   </div>
-  <div class="field">
-    <%= f.label :translation %><br />
-    <%= f.text_field :translation %>
-  </div>
-  <div class="field">
-    <%= f.label :example %><br />
-    <%= f.text_area :example %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-footer">
+    <%= link_to 'Закрити', '#', id: "close_form_btn", class: "btn", role: "button" %>
+    <%= f.submit "Зберегти", class: "btn btn-primary" %>
   </div>
 <% end %>

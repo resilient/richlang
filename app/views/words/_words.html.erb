@@ -1,0 +1,22 @@
+<% unless @words.empty? %>
+  <table class="table">
+    <tbody>
+    <% @words.each do |word| %>
+      <tr>
+        <td>
+          <%= link_to word.word, word %>
+        </td>
+        <td>
+          <%= link_to word.translation, word %>
+        </td>
+        <td>
+          <%= image_tag word.image_url(:small_thumb), class: "img-polaroid" if word.image? %>
+        </td>
+        <td> <p class="text-right"><%= link_to 'видалити', word, confirm: 'Are you sure?', method: :delete %></p></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Слово "<%=  @search_word %>" не найдено у вашому словнику.</p>
+<% end %>
