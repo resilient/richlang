@@ -8,9 +8,9 @@ class Word < ActiveRecord::Base
 
   belongs_to :user
 
-  validates_presence_of :user_id, presence: true
-  validates_presence_of :word, presence: true, message: "Введiть слово"
-  validates_presence_of :translation, presence: true, message: "Введiть переклад"
+  validates :user_id, presence: true
+  validates :word, presence: { message: "Введiть слово" }
+  validates :translation, presence: { message: "Введiть переклад" }
 
   def self.search(search)
     if search
