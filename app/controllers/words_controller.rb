@@ -30,9 +30,9 @@ class WordsController < ApplicationController
     @word = current_user.words.build(params[:word])
 
     if @word.save
-      redirect_to words_url
+      redirect_to words_path
     else
-      redirect_to words_url, notice: 'Something wrong!'
+      redirect_to words_path, notice: 'Something wrong!'
     end
   end
 
@@ -47,6 +47,6 @@ class WordsController < ApplicationController
     @word = Word.find(params[:id])
     @word.destroy
 
-    redirect_to words_url
+    redirect_to words_path
   end
 end
