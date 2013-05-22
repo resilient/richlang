@@ -20,3 +20,9 @@ gem 'carrierwave'
 gem 'client_side_validations'
 
 gem 'best_in_place'
+
+group :development do
+  gem 'rack-mini-profiler'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
