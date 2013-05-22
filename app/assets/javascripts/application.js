@@ -18,15 +18,4 @@
 //= require rails.validations
 //= require_tree .
 
-$(function() {
-    $("#words_search input").keyup(function() {
-        $.get($("#words_search").attr("action"), $("#words_search").serialize(), null, "script");
-        return false;
-    });
-});
-
-$(function() {
-    return $('.best_in_place').best_in_place();
-});
-
 
