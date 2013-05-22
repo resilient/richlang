@@ -2,7 +2,6 @@ if ($('#new_word').size() == 0) {
   $('#add_link').after('<%= j render("form") %>').after($('#new_word').enableClientSideValidations()).after(close_form()).after(lingvo_link());
 }
 
-
 function close_form() {
   $('#close_form_btn').on('click', function() {
     $('#new_word').remove();
@@ -10,7 +9,7 @@ function close_form() {
 }
 
 function lingvo_link() {
-  $("#input_word").keyup(function() {
+  $("#input_word").on('keyup', function() {
     $("#lingvo_link").attr("href", "http://www.lingvo.ua/uk/Translate/en-uk/" + $("#input_word").val());
   });
 }
