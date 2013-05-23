@@ -17,25 +17,25 @@
           <%= link_to 'Rich Lang', root_path, class: "brand" %>
 	        <% if user_signed_in? %>
             <p class="navbar-text pull-right">
-              Привіт, <%= link_to current_user.name, edit_user_registration_path, class: "navbar-link" %> |
-              <%= link_to 'Вийти', destroy_user_session_path, method: :delete, class: "navbar-link" %>
+              <%= t('.hello') %>, <%= link_to current_user.name, edit_user_registration_path, class: "navbar-link" %> |
+              <%= link_to t('.exit'), destroy_user_session_path, method: :delete, class: "navbar-link" %>
             </p>
 
             <ul class="nav">
-              <li><%= link_to 'Словник', words_path %></li>
+              <li><%= link_to t('.dictionary'), words_path %></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Тренування <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('.training') %> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Слово -> Переклад</a></li>
-                  <li><a href="#">Переклад -> Слово</a></li>
+                  <li><%= link_to t('.word-translation'), '#' %></li>
+                  <li><%= link_to t('.translation-word'), '#' %></li>
                 </ul>
               </li>
             </ul>
 
         <% else %>
             <p class="navbar-text pull-right">
-              <%= link_to 'Увійдіть', new_user_session_path, class: "navbar-link" %> або
-              <%= link_to 'Зареєтруйтеся', new_user_registration_path, class: "navbar-link" %>
+              <%= link_to t('.entrance'), new_user_session_path, class: "navbar-link" %> або
+              <%= link_to t('.register'), new_user_registration_path, class: "navbar-link" %>
             </p>
 	        <% end %>
         </div>

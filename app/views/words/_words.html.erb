@@ -12,11 +12,11 @@
         <td>
           <%= image_tag word.image_url(:small_thumb), class: "img-polaroid" if word.image? %>
         </td>
-        <td> <p class="text-right"><%= link_to 'видалити', word, confirm: 'Are you sure?', method: :delete %></p></td>
+        <td> <p class="text-right"><%= link_to t('.delete'), word, confirm: t('.are_you_sure'), method: :delete %></p></td>
       </tr>
     <% end %>
     </tbody>
   </table>
 <% else %>
-  <p>Слово "<%=  @search_word %>" не найдено у вашому словнику.</p>
+  <p><%= t('.not_found', word: @search_word) %></p>
 <% end %>

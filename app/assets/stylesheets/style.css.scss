@@ -1,22 +1,8 @@
-@import "bootstrap";
-@import "bootstrap-responsive";
+@import "bootstrap/_mixins";
 
 $back-color:      #f5f5f5;
 $form-back-color: #ffffff;
 $border-color:    #e5e5e5;
-
-@mixin rounded-corners($radius) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-          border-radius: $radius;
-}
-
-@mixin shadow() {
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-          box-shadow: 0 1px 2px rgba(0,0,0,.05);
-}
-
 
 body {
   background-color: $back-color;
