@@ -1,4 +1,3 @@
-#!/usr/local/bin/ruby
 # coding: utf-8
 
 class Word < ActiveRecord::Base

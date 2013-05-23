@@ -1,6 +1,3 @@
-#!/usr/local/bin/ruby
-# coding: utf-8
-
 class WordsController < ApplicationController
 	before_filter :authenticate_user!
   respond_to :html, :json
