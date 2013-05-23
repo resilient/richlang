@@ -1,0 +1,19 @@
+<div class="row content">
+
+  <div class="span12">
+
+    <p class="text-right">Кількість слів у вашому словнику: <strong><%= @words_count %></strong></p>
+
+    <%= form_tag words_path, method: 'get', id: "words_search", class: "form-search" do %>
+      <%= text_field_tag :search, params[:search], class: "input-xlarge", placeholder: "Шукати слово" %> або
+      <%= link_to 'Додати нове', new_word_path, id: "add_link", class: "btn", role: "button", remote: true %>
+    <% end %>
+
+    <div id="words">
+      <%= render 'words' %>
+      <br />
+    </div>
+
+  </div>
+
+</div>

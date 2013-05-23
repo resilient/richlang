@@ -1,0 +1,17 @@
+<h1 class="text-center">
+  <%= best_in_place @word, :word %>
+</h1>
+
+<h3 class="muted text-center">
+  <%= best_in_place @word, :translation %>
+</h3>
+
+<p class="text-center">
+  <%= image_tag @word.image_url(:medium_thumb), class: "img-polaroid" if @word.image? %>
+</p>
+
+<p class="text-center">
+  <%= best_in_place @word, :example, type: :textarea, nil: '<a>Додати приклад зі словом "' + @word.word + '"</a>' %>
+</p>
+
+<a href="<%= words_url %>" class="btn" role="button"><i class="icon-circle-arrow-left"></i> Назад</a>
