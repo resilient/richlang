@@ -1,0 +1,38 @@
+uk:
+
+  something_wrong: "Неправильно заповнені поля!"
+  enter_word: "Введiть слово"
+  enter_translation: "Введiть переклад"
+
+  layouts:
+    application:
+      hello: "Привіт"
+      exit: "Вийти"
+      dictionary: "Словник"
+      training: "Тренування"
+      word-translation: "Слово -> Переклад"
+      translation-word: "Переклад -> Слово"
+      entrance: "Увійдіть"
+      register: "Зареєтруйтеся"
+
+  words:
+    form:
+      word: "Слово"
+      look_translation_on_lingvo: "Подивитися переклад слова на сайті Lingvo"
+      translation: "Переклад"
+      picture: "Асоціативна картинка"
+      example: "Приклад"
+      close: "Закрити"
+      save: "Зберегти"
+    words:
+      delete: "видалити"
+      are_you_sure: "Ви впевненні?"
+      not_found: "Слово '%{word}' не найдено у вашому словнику."
+    index:
+      words_count: "Кількість слів у вашому словнику"
+      search_word: "Шукати слово"
+      or: "або"
+      add_new_word: "Додати нове"
+    show:
+      add_example: "Додати приклад зі словом"
+      back: "Назад"

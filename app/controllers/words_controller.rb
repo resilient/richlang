@@ -29,7 +29,7 @@ class WordsController < ApplicationController
     if @word.save
       redirect_to words_path
     else
-      redirect_to words_path, notice: 'Something wrong!'
+      redirect_to words_path, notice: I18n.t('.something_wrong')
     end
   end
 

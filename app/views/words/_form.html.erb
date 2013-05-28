@@ -1,18 +1,18 @@
 <%= form_for(@word, validate: true) do |f| %>
   <div class="form-body">
-    <%= f.text_field :word, placeholder: "Слово", class: "input-block-level", id: "input_word" %>
-    <a target="_blank" id="lingvo_link" href="http://www.lingvo.ua/uk/Translate/en-uk/">Подивитися переклад слова на сайті Lingvo</a><br/><br/>
+    <%= f.text_field :word, placeholder: t('.word'), class: "input-block-level", id: "input_word" %>
+    <a target="_blank" id="lingvo_link" href="http://www.lingvo.ua/uk/Translate/en-uk/"><%= t('.look_translation_on_lingvo') %></a><br/><br/>
 
-    <%= f.text_field :translation, placeholder: "Переклад", class: "input-block-level" %><br/><br/>
+    <%= f.text_field :translation, placeholder: t('.translation'), class: "input-block-level" %><br/><br/>
 
-    Асоціативна картинка:
+    <%= t('.picture') %>:
     <%= f.file_field :image %><br/><br/>
 
-    <%= f.text_area :example, placeholder: "Приклад", class: "input-block-level", rows: 5 %>
+    <%= f.text_area :example, placeholder: t('.example'), class: "input-block-level", rows: 5 %>
   </div>
 
   <div class="form-footer">
-    <%= link_to 'Закрити', '#', id: "close_form_btn", class: "btn", role: "button" %>
-    <%= f.submit "Зберегти", class: "btn btn-primary" %>
+    <%= link_to t('.close'), '#', id: "close_form_btn", class: "btn", role: "button" %>
+    <%= f.submit t('.save'), class: "btn btn-primary" %>
   </div>
 <% end %>

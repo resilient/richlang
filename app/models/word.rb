@@ -1,5 +1,3 @@
-# coding: utf-8
-
 class Word < ActiveRecord::Base
   attr_accessible :example, :progress, :transcription, :translation, :word, :image
 
@@ -8,8 +6,8 @@ class Word < ActiveRecord::Base
   belongs_to :user
 
   validates :user_id, presence: true
-  validates :word, presence: { message: "Введiть слово" }
-  validates :translation, presence: { message: "Введiть переклад" }
+  validates :word, presence: { message: I18n.t('.enter_word') }
+  validates :translation, presence: { message: I18n.t('.enter_translation') }
 
   def self.search(search)
     if search
