@@ -29,9 +29,10 @@ end
 
 group :test do
   gem 'factory_girl_rails', '4.2.1'
+  gem 'shoulda-matchers'
+  gem 'guard-rspec'
 end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'guard-rspec'
 end
