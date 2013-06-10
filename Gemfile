@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.13'
 gem 'mysql2'
 
 group :assets do
@@ -25,4 +25,14 @@ group :development do
   gem 'rack-mini-profiler'
   gem 'better_errors'
   gem 'binding_of_caller'
+end
+
+group :test do
+  gem 'factory_girl_rails', '4.2.1'
+  gem 'shoulda-matchers'
+  gem 'guard-rspec'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
 end
