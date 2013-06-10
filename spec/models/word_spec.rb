@@ -4,8 +4,6 @@ require 'spec_helper'
 
 describe Word do
 
-  let(:word) { FactoryGirl.create(:word) }
-
   it { should belong_to(:user) }
 
   it { should validate_presence_of(:user_id) }
