@@ -6,6 +6,7 @@ class WordsController < ApplicationController
     @search_word = params[:search]
 
     @words = current_user.words.search(@search_word).order("created_at DESC")
+    #@words = Word.search(@search_word).order("created_at DESC")
 
     @words_count = @words.size
   end
