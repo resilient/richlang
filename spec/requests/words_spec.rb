@@ -4,8 +4,8 @@ describe "Words" do
   include Warden::Test::Helpers
   Warden.test_mode!
   
-  let(:word) { FactoryGirl.create(:word, word: 'hello_uk', translation: 'hello_ua') }
-  let(:user) { FactoryGirl.create(:user, words: [word]) }
+  let!(:word) { FactoryGirl.create(:word, word: 'hello_uk', translation: 'hello_ua', user_id: user.id) }
+  let(:user) { FactoryGirl.create(:user) }
 
   before(:each) do
     login_as(user, :scope => :user)
@@ -16,7 +16,7 @@ describe "Words" do
       visit words_path
       
       expect(page).to have_field('search')
-
+      
       expect(page).to have_link('add_link')
       expect(page).to have_content(user.words.count)
       expect(page).to have_link(word.word)
