@@ -14,4 +14,4 @@
   <%= best_in_place @word, :example, type: :textarea, nil: '<a>' + t('.add_example') + ' "' + @word.word + '"</a>' %>
 </p>
 
-<a href="<%= words_url %>" class="btn" role="button"><i class="icon-circle-arrow-left"></i> <%= t('.back') %></a>
+<a href="<%= words_url %>" class="btn" id="back_button" role="button"><i class="icon-circle-arrow-left"></i> <%= t('.back') %></a>
