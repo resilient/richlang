@@ -21,7 +21,7 @@ describe "Words" do
 
       expect(page).to have_link(word.word)
       expect(page).to have_link(word.translation)
-      expect(page).to have_link('delete_link')
+      expect(page).to have_link("delete_link_#{word.id}")
     end
   end
 
@@ -54,7 +54,7 @@ describe "Words" do
 
   describe 'delete word' do
     it "deleting word", js: true do
-      click_link('delete_link')
+      click_link("delete_link_#{word.id}")
 
       expect(page).not_to have_link(word.word)
       expect(page).not_to have_link(word.translation)
